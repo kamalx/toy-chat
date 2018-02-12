@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { addUser } from './actions';
 import chat from './reducers';
+import { setupSocket } from './sockets'
 
 const store = createStore(chat)
 
