@@ -1,17 +1,15 @@
 import React from 'react'
-import PropTypes from 'proptypes'
+import propTypes from 'prop-types'
 
-const Message = ({message, author}) => {
-  return (
-    <p>
-      <i>{author}</i>: {message}
-    </p>
-  )
-}
+const Message = ({message, author}) => (
+  <li>
+    <i>{author}</i>: {message}
+  </li>
+)
 
-Message.PropTypes = {
-  message: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired
+Message.propTypes = {
+  message: propTypes.string.isRequired,
+  author: propTypes.string.isRequired
 }
 
 export default Message
