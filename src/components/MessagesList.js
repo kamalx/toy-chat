@@ -1,25 +1,25 @@
 import React from 'react'
-import PropTypes from 'proptypes'
+import propTypes from 'prop-types'
+import Message from './Message'
 
-const MessagesList = ({ messages }) => {
-  return (
-    <section id="messages-list">
-      <ul>
-        {messages.map(message) => (
-          <Messages
-            key={message.id}
-            {...message} />
-          ))}
-      </ul>
-    </section>
-  )
+const MessagesList = ({ messages }) => (
+  <section id="messages-list">
+    <ul>
+      {messages.map(message => (
+        <Message
+          key={ message.id }
+          { ...message } />
+        ))}
+    </ul>
+  </section>
+)
 
-MessagesList.PropTypes = {
-  messages: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        message: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired
+MessagesList.propTypes = {
+  messages: propTypes.arrayOf(
+      propTypes.shape({
+        id: propTypes.number.isRequired,
+        message: propTypes.string.isRequired,
+        author: propTypes.string.isRequired
       }).isRequired
     ).isRequired
 }
