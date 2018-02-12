@@ -8,14 +8,17 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { addUser } from './actions';
-import chat from './reducers';
+import reducers from './reducers';
 import { setupSocket } from './sockets'
 import handleNewMessage from './sagas'
 import username from './utils/name'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(chat)
+const store = createStore(
+  reducers
+  applyMiddleware(sagaMiddleware)
+)
 
 // dispatch actions for init
 store.dispatch(addUser('Me'))
