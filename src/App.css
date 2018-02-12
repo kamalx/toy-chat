@@ -5,7 +5,7 @@
 
 #sidebar {
   width: 15vw;
-  padding: 1.5rem;
+  padding: 0.67rem;
 }
 
 #main {
@@ -16,15 +16,28 @@
 }
 
 #main>section {
-  padding: 1.5rem;
-  border-left: 1px solid #ccc;
-  height: 100%;
+  padding: 0.67rem;
+  border-left: 1px solid #999;
+}
+#main>section:first-child {
+  height: 100vh;
+  overflow-y:scroll;
 }
 
 #main>section:not(:first-child) {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #999;
 }
 
 #main>#new-message {
   height: 3rem;
+  background-color: #ccc;
+}
+
+#new-message>input {
+  height: 100%;
+  width: 80%;
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: monospace;
 }
