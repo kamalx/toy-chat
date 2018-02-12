@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { createSagaMiddleware } from 'redux-saga'
 
 import './index.css';
@@ -20,8 +20,9 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 )
 
-// dispatch actions for init
-store.dispatch(addUser('Me'))
+const socket = setupSocket(store.dispatch, username)
+
+sagaMiddleware.run(handleNewMessage, {socket, username})
 
 ReactDOM.render(
   <Provider store={store}>
