@@ -27,4 +27,8 @@ const setupSocket = (dispatch, username) => {
         // pass
     }
   }
+
+  return socket
 }
+
+export default setupSocket
